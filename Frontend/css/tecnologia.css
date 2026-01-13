@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: radial-gradient(circle at top, #0a0f2c, #02031a);
+  color: #fff;
+}
+
+.featured-news {
+  max-width: 1200px;
+  margin: 80px auto;
+  background: #f1f1f1;
+  border-radius: 24px;
+  padding: 32px;
+}
+
+.featured-news h2 {
+  margin-bottom: 24px;
+  font-size: 32px;
+  color: #222;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.news-column {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.news-card {
+  position: relative;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  cursor: pointer;
+  min-height: 160px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.news-card.large {
+  min-height: 360px;
+}
+
+.news-card.small {
+  min-height: 120px;
+}
+
+.news-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.1));
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+}
+
+.overlay p {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.news-card.large .overlay p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.visit {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  transition: background 0.3s ease;
+}
+
+.visit:hover {
+  background: rgba(0,0,0,0.8);
+}
