@@ -4,8 +4,8 @@
 :root {
   --nasa-blue: #0b3d91;
   --nasa-red: #fc3d21;
-  --dark-space: #070b17;
-  --deep-space: #0e1323;
+  --dark-space: #02031a;
+  --deep-space: rgb(3, 6, 22);
   --light-gray: #e6e6e6;
   --gray: #b5b5b5;
   --white: #ffffff;
@@ -25,21 +25,15 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: var(--font-main);
   background: var(--dark-space);
   color: var(--white);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
 }
 
 img {
-  width: 100%;
   display: block;
+  width: 100%;
 }
 
 a {
@@ -54,70 +48,56 @@ a {
   position: fixed;
   top: 0;
   width: 100%;
+  height: 80px;
   background: rgba(7, 11, 23, 0.9);
   backdrop-filter: blur(10px);
   z-index: 1000;
 }
 
 .header-inner {
-  max-width: 100%;
-  padding: 1rem 3rem;
-  display: grid;
-  grid-template-columns: 60px 1fr auto;
+  position: relative;
+  height: 100%;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
 }
 
-/* botón ☰ */
+/* ---------- LEFT (MENU + SEARCH) ---------- */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .menu-btn {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   background: none;
   border: none;
-  color: var(--white);
+  color: white;
   cursor: pointer;
 }
-.brand-logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 65px;      /* controla el tamaño vertical */
-  width: auto;       /* mantiene proporción */
-  max-width: 180px;  /* no se haga gigante */
-  object-fit: contain;
-  display: block;
-}
 
-
-/* ================= BUSCADOR PROFESIONAL MÁS GRANDE ================= */
+/* SEARCH */
 .search-box {
   display: flex;
   align-items: center;
   background: rgba(255,255,255,0.08);
   border-radius: 999px;
-  padding: 0.5rem 1rem;   /* ↑ más alto y ancho */
-  margin-left: 0.8rem;
-  transition: all 0.35s ease;
-  width: 50px;            /* un poco más ancho inicialmente */
+  padding: 6px 10px;
+  width: 44px;
   overflow: hidden;
-  cursor: pointer;
+  transition: width 0.35s ease;
 }
 
 .search-box:hover,
 .search-box:focus-within {
-  width: 200px;           /* ancho al expandirse */
-  background: rgba(255,255,255,0.15);
+  width: 180px;
 }
 
 .search-icon {
-  font-size: 1.1rem;      /* ↑ más grande */
+  font-size: 1rem;
   color: white;
-  pointer-events: none;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.search-box:hover .search-icon,
-.search-box:focus-within .search-icon {
-  color: var(--nasa-red);
-  transform: scale(1.1);
 }
 
 .search-box input {
@@ -125,11 +105,10 @@ a {
   border: none;
   outline: none;
   color: white;
-  font-size: 0.95rem;     /* ↑ un poco más grande */
-  margin-left: 0.6rem;
+  margin-left: 8px;
   width: 0;
   opacity: 0;
-  transition: width 0.35s ease, opacity 0.35s ease;
+  transition: all 0.3s ease;
 }
 
 .search-box:hover input,
@@ -140,27 +119,65 @@ a {
 
 .search-box input::placeholder {
   color: rgba(255,255,255,0.6);
-  font-weight: 400;
 }
 
+/* ---------- LOGO CENTRADO ---------- */
+.brand-logo-link {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-/* menú principal derecha */
+.brand-logo {
+  height: 58px;
+  width: auto;
+}
+
+/* ---------- RIGHT NAV ---------- */
 .main-nav {
   display: flex;
   gap: 2rem;
-  justify-self: end;
 }
 
 .main-nav a {
   font-size: 0.95rem;
-  font-weight: 500;
   opacity: 0.85;
-  position: relative;
 }
 
 .main-nav a:hover {
   opacity: 1;
   color: var(--nasa-red);
+}
+
+/* BOTÓN LOGIN / REGISTRO */
+.login-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+   position: relative;
+  top: -8px; /* Ajusta: -2px, -4px, -6px según lo necesites */
+
+  padding: 8px 14px;
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+}
+
+.login-btn i {
+  font-size: 15px;
+}
+
+.login-btn:hover {
+  background: #fff;
+  color: #000;
 }
 
 /* ======================================================
@@ -186,7 +203,7 @@ a {
   font-size: 1.5rem;
   background: none;
   border: none;
-  color: var(--white);
+  color: white;
   cursor: pointer;
   margin-bottom: 2rem;
 }
@@ -195,11 +212,6 @@ a {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-}
-
-.side-nav a {
-  font-size: 1.05rem;
-  font-weight: 500;
 }
 
 /* ======================================================
