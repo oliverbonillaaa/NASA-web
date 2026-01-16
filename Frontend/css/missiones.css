@@ -149,6 +149,37 @@ a {
   color: var(--nasa-red);
 }
 
+/* BOTÓN LOGIN / REGISTRO */
+.login-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+   position: relative;
+  top: -8px; /* Ajusta: -2px, -4px, -6px según lo necesites */
+
+  padding: 8px 14px;
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+}
+
+.login-btn i {
+  font-size: 15px;
+}
+
+.login-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
 /* ======================================================
    MENU LATERAL
 ====================================================== */
@@ -238,6 +269,23 @@ a {
   top: 20px;
 }
 
+.info-btn {
+  margin-top: 1rem;
+  padding: 0.8rem 2rem;
+  background: var(--nasa-red);
+  border: none;
+  border-radius: 999px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.info-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(252,61,33,.4);
+}
+
 /* ======================================================
    GALLERY
 ====================================================== */
@@ -294,6 +342,53 @@ a {
 .mission-info {
   padding: 1.5rem;
 }
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s ease;
+  z-index: 999;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: #0b0f2b;
+  color: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  transform: scale(0.8) translateY(40px);
+  transition: all .4s ease;
+  box-shadow: 0 30px 80px rgba(0,0,0,.6);
+}
+
+.modal-overlay.active .modal-content {
+  transform: scale(1) translateY(0);
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+}
+
 
 /* ======================================================
    FOOTER
